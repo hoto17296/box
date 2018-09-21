@@ -1,0 +1,13 @@
+{
+  "name": "depot-backend",
+  "version": "0.0.0",
+  "description": "",
+  "engines": {
+    "node": "8"
+  },
+  "main": "index.js",
+  "scripts": {},
+  "author": "hoto17296",
+  "private": true,
+  "license": "MIT"
+}
