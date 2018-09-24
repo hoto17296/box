@@ -1,6 +1,9 @@
-const AWS = require('aws-sdk/global');
-const Lambda = require('aws-sdk/clients/lambda');
-const promisify = require('./promisify');
+import AWS from 'aws-sdk/global'
+import Lambda from 'aws-sdk/clients/lambda'
+import promisify from './promisify'
+import Vue from 'vue'
+import App from './App.vue'
+
 
 AWS.config.update({
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -17,6 +20,13 @@ function invoke(id, password) {
   });
 }
 
+new Vue({
+  el: 'main',
+  render: h => h(App),
+});
+
+/*
 window.onload = function() {
   invoke('Pokemon.csv', 'foo').then((data) => console.log(JSON.parse(data.Payload)));
 };
+*/

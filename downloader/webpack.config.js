@@ -5,9 +5,13 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.vue$/,
+        loader: 'vue-loader',
+      },
+      {
         test: /\.html$/,
         use: 'html-loader',
-      }
+      },
     ],
   },
   plugins: [
