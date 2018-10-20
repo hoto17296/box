@@ -1,9 +1,6 @@
 import AWS from 'aws-sdk/global'
-import Lambda from 'aws-sdk/clients/lambda'
-import promisify from './promisify'
 import Vue from 'vue'
 import App from './App.vue'
-
 
 AWS.config.update({
   accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -11,22 +8,9 @@ AWS.config.update({
   region: process.env.AWS_REGION,
 });
 
-const lambda = new Lambda();
-
-function invoke(id, password) {
-  return promisify(lambda.invoke).bind(lambda)({
-    FunctionName : process.env.AWS_LAMBDA_BACKEND_FUNCTION || 'depot-backend',
-    Payload : JSON.stringify({ id, password }),
-  });
-}
+const id = window.location.pathname.substr(1);
 
 new Vue({
   el: 'main',
-  render: h => h(App),
+  render: h => h(App, { props: { id: id } }),
 });
-
-/*
-window.onload = function() {
-  invoke('Pokemon.csv', 'foo').then((data) => console.log(JSON.parse(data.Payload)));
-};
-*/

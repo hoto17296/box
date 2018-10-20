@@ -4,8 +4,8 @@
   "description": "",
   "private": true,
   "scripts": {
-    "build": "webpack --mode production --module-bind js=babel-loader",
-    "start": "webpack-dev-server --mode development --module-bind js=babel-loader"
+    "build": "webpack --mode production",
+    "start": "webpack-dev-server --mode development --history-api-fallback"
   },
   "author": "hoto17296",
   "license": "MIT",
